@@ -1,10 +1,5 @@
 package Ex;
 
-enum SistemOperare{
-    WINDOWS,
-    LINUX
-}
-
 public class SistemCalcul extends Echipament
 {
     private String tip_mon;

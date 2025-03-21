@@ -63,40 +63,51 @@ public class MainApp
                 case 2:
                     for(Echipament e : listaEchipament)
                         if( e instanceof  Imprimanta)
-                        System.out.println(e);
+                            System.out.println(e);
                     break;
                 case 3:
                     for(Echipament e : listaEchipament)
-                        if(e instanceof Copiator)
+                        if(e.getClass()==Copiator.class)//getClass()
                             System.out.println(e);
                     break;
                 case 4:
                     for(Echipament e : listaEchipament)
-                        if(e instanceof SistemCalcul)
+                        if(e.getClass().getName().equals("SistemCalcul"))//getClass.getName
                             System.out.println(e);
                     break;
                 case 5:
                 {
-                    int stare,nr_inv;
+                    int nr_inv;
+                    boolean ok=false;
+                    String stare = null;
                     System.out.print("Dati numarul de inventar al produsului: ");
                     nr_inv=scanner.nextInt();
-                    for(Echipament e : listaEchipament)
+                    StareEchip s;
+                    for(Echipament e : listaEchipament)//citim string tastatura
                         if(nr_inv==e.getNr_inv())
                         {
                             do
                             {
-                                System.out.print("Dati starea echipamentului: (1-Achizitionat, 2-Expus, 3-Vandut): ");
-                                stare =scanner.nextInt();
-                            }while(stare != 1 && stare !=2 && stare !=3);
-                            switch (stare)
+                                try {
+                                    System.out.print("Dati starea echipamentului: (Achizitionat, Expus, Vandut) ");
+                                    stare = scanner.next();
+                                    s=StareEchip.valueOf(stare.toUpperCase());
+                                    ok=true;
+                                }
+                                catch (IllegalArgumentException exc)
+                                {
+                                    System.out.println(exc);
+                                }
+                            }while(!ok);
+                            switch (stare.toUpperCase())
                             {
-                                case 1:
+                                case "ACHIZITIONAT":
                                     e.setStare(StareEchip.valueOf("ACHIZITIONAT"));
                                     break;
-                                case 2:
+                                case "EXPUS":
                                     e.setStare(StareEchip.valueOf("EXPUS"));
                                     break;
-                                case 3:
+                                case "VANDUT":
                                     e.setStare(StareEchip.valueOf("VANDUT"));
                                 default:
                                     System.out.println("Optiune invalida");
@@ -136,17 +147,17 @@ public class MainApp
                     System.out.print("Dati numarul de inventar al produsului: ");
                     nr_inv = scanner.nextInt();
                     for (Echipament e : listaEchipament)
-                        if (nr_inv == e.getNr_inv() && e instanceof Copiator) {
+                        if (nr_inv == e.getNr_inv() && e instanceof Copiator c) {
                             do {
                                 System.out.print("Dati sistemul de operare dorit: (1-A3, 2-A4): ");
                                 formatCopiere = scanner.nextInt();
                             } while (formatCopiere != 1 && formatCopiere != 2 && formatCopiere != 3);
                             switch (formatCopiere) {
                                 case 1:
-                                    ((Copiator) e).setFormatCopiere(FormatCopiere.valueOf("A3"));
+                                    c.setFormatCopiere(FormatCopiere.valueOf("A3"));
                                     break;
                                 case 2:
-                                    ((Copiator) e).setFormatCopiere(FormatCopiere.valueOf("A4"));
+                                    c.setFormatCopiere(FormatCopiere.valueOf("A4"));
                                     break;
                                 default:
                                     System.out.println("Optiune invalida");

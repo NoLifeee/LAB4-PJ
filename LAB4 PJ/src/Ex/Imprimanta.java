@@ -1,10 +1,5 @@
 package Ex;
 
-enum ModTiparire{
-    COLOR,
-    ALBNEGRU
-}
-
 public class Imprimanta extends Echipament
 {
     private int ppm;

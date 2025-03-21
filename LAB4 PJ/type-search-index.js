@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Ex","l":"Copiator"},{"p":"Ex","l":"Echipament"},{"p":"Ex","l":"FormatCopiere"},{"p":"Ex","l":"Imprimanta"},{"p":"Ex","l":"MainApp"},{"p":"Ex","l":"ModTiparire"},{"p":"Ex","l":"SistemCalcul"},{"p":"Ex","l":"SistemOperare"},{"p":"Ex","l":"StareEchip"}];updateSearchResults();

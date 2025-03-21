@@ -1,10 +1,5 @@
 package Ex;
 
-enum FormatCopiere{
-    A3,
-    A4
-}
-
 public class Copiator extends Echipament
 {
     private int p_ton;
